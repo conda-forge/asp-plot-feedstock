@@ -1,5 +1,5 @@
 {% set name = "asp-plot" %}
-{% set version = "1.19.0" %}
+{% set version = "2.0.0" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -8,16 +8,18 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/asp_plot-{{ version }}.tar.gz
-  sha256: 119498e8a18c6a62d29cb73ea84bd19f75582acb5824c280e49c2f4393520630
+  sha256: 0a3f6725fd893c3058f120810f5f123bcf9ad712495431918c7ca4172ee06a53
 
 build:
   noarch: python
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
-    - asp_plot = asp_plot.cli.asp_plot:main
+    - asp_report = asp_plot.cli.asp_report:main
     - csm_camera_plot = asp_plot.cli.csm_camera_plot:main
     - stereo_geom = asp_plot.cli.stereo_geom:main
+    - request_planetary_altimetry = asp_plot.cli.request_planetary_altimetry:main
+    - gallery = asp_plot.cli.gallery:main
 
 requirements:
   host:
@@ -40,16 +42,19 @@ requirements:
     - rioxarray
     - scipy
     - shapely
-    - sliderule
+    - pyyaml
+    - sliderule >=5.3.0
     - xarray
 
 test:
   imports:
     - asp_plot
   commands:
-    - asp_plot --help
+    - asp_report --help
     - csm_camera_plot --help
     - stereo_geom --help
+    - request_planetary_altimetry --help
+    - gallery --help
 
 about:
   home: https://github.com/uw-cryo/asp_plot
