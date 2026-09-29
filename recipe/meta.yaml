@@ -1,5 +1,5 @@
 {% set name = "asp-plot" %}
-{% set version = "3.2.0" %}
+{% set version = "3.3.0" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/asp_plot-{{ version }}.tar.gz
-  sha256: 3f0975d6bb4fd43d7521f6aa06873457437a75723e7e4b7bf9e44c559f8cf33f
+  sha256: a8b842713a5fcfbad0c1c0dcb7757e3002264137c04b9e8a100ec645ba6c02cd
 
 build:
   noarch: python
@@ -21,6 +21,7 @@ build:
     - stereo_geom = asp_plot.cli.stereo_geom:main
     - request_planetary_altimetry = asp_plot.cli.request_planetary_altimetry:main
     - gallery = asp_plot.cli.gallery:main
+    - dem_benchmark = asp_plot.cli.dem_benchmark:main
 
 requirements:
   host:
@@ -57,6 +58,7 @@ test:
     - stereo_geom --help
     - request_planetary_altimetry --help
     - gallery --help
+    - dem_benchmark --help
 
 about:
   home: https://github.com/uw-cryo/asp_plot
