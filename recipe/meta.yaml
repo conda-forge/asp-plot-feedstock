@@ -1,5 +1,5 @@
 {% set name = "asp-plot" %}
-{% set version = "3.3.0" %}
+{% set version = "3.4.0" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/asp_plot-{{ version }}.tar.gz
-  sha256: a8b842713a5fcfbad0c1c0dcb7757e3002264137c04b9e8a100ec645ba6c02cd
+  sha256: 9d6df5737deeecc02ad64ec1d056a0dc22624a6fb6a4d5679a366f488d9e3ab6
 
 build:
   noarch: python
